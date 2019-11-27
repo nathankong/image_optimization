@@ -15,14 +15,14 @@ print "Device:", DEVICE
 
 # Optimization parameters
 MAX_ITER = 400
-NEURON_X = 4
-NEURON_Y = 3
-CHAN = 100
+NEURON_X = 3
+NEURON_Y = 5
+CHAN = 253
 BATCH_SIZE = 1
 WEIGHT_DECAY = 0.001
 EPS = 1e-2
 LR = 0.1
-LAYER_IDX = 6
+LAYER_IDX = 8
 IMG_SIZE = 128
 
 def loss_func(activation):

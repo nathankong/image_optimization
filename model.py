@@ -43,7 +43,7 @@ class AlexNetNoFC(nn.Module):
         layer = 0
         for module in list(self.features.children()):
             x = module(x)
-            if layer in self._to_select and isinstance(module, nn.Conv2d):
+            if layer in self._to_select:
                 desired_feats[layer] = x
             layer += 1
 
@@ -65,11 +65,14 @@ if __name__ == "__main__":
     import torch
     from torch.autograd import Variable
 
-    idx = 6
+    idx = 7
+    img_size = 64
     a = alexnet(pretrained=True, to_select=[idx])
-    opt_img = Variable(torch.rand(1,3,128,128))
+    opt_img = Variable(torch.rand(1,3,img_size,img_size))
 
     act = a(opt_img)
     print act[idx].size()
 
+    from torchvision.models import resnet50
+    m = resnet50(pretrained=True)
 

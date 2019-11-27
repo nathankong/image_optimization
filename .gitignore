@@ -2,4 +2,4 @@ image_opt/
 images/
 losses/
 *.pyc
-
+notebooks/*.png
